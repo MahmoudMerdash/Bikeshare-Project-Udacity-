@@ -6,3 +6,4 @@ first the main.py that is ths main file that has the core application layer
 readFile.py that one has three function which are resposible for get the desire input from user and load the date then the last function it is for display raw data after analysis is done 
 Fillter.py to filter the loaded data and return data frame with specific user input 
 DataManip.py to calculate the output for that are required in Project Rubica
+Download BikeShare.rar and make your you extract the csv files in the same directory of the code 

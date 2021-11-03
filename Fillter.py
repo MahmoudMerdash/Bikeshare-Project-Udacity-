@@ -9,7 +9,6 @@ Created on Tue Nov  2 19:37:44 2021
 Importing section 
 """
 import ReadFile as rf
-import pandas as pd 
 
 ###########################################################################################################################
 
@@ -103,7 +102,7 @@ def apply_filletr():
     methond_name = fillter_method() #get the method rquired to apply filter 
     month, day = get_fillter(methond_name) # get the names of month and days to fillter the data 
     df = rf.load_data(file_name) # load files 
-    df['Start Time'] = pd.to_datetime(df['Start Time']) # convert start time cells to time format 
+    df['Start Time'] = rf.pd.to_datetime(df['Start Time']) # convert start time cells to time format 
     df['Month'] = df['Start Time'].dt.month # creat a new column of months 
     df['Days_names'] = df['Start Time'].dt.dayofweek #creat new column of each days 
     df['Days_num'] = df['Start Time'].dt.day #create day in number forms 
@@ -113,7 +112,7 @@ def apply_filletr():
     if day != 'all' and day is not None:
         df = df[df['Days_names'] == days_lst.index(day)]
         
-    return df 
+    return df, month, day,file_name
 
 if __name__ == '__main__':
     df = apply_filletr()

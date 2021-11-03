@@ -17,10 +17,12 @@ def read_file_name()->str:
         file Name that used needs to explore its data
     """
     city_list = ['Chicago', 'New York', 'Washington']
-    print("Hello let's explore some US bike Share Data\n\n")
+    print('*'*60)
+    print("Hello let's explore some US bike Share Data")
+    print('*'*60)
     while True:
         try:
-            file_name = input("Enter the name of city to explore its data [Chicago, New York, Washington ").lower().title().strip()
+            file_name = input("Enter the name of city to explore its data [Chicago, New York, Washington]").lower().title().strip()
             if file_name not in city_list: 
                 print('\n******************************************')
                 print('You enter wrong city')
@@ -57,6 +59,20 @@ def load_data(file_name:str):
         
             
     return df 
+    
+def display_rawData(file_name) :
+    """
+    Display raw date from input user
+    input: the name of the city 
+    output: None 
+    """
+    data_frame = load_data(file_name)
+    view_data = input("Would you like to view 5 rows of individual trip data? Enter yes or no?").lower()
+    start_loc = 0
+    while view_data == 'yes':
+      print(data_frame.iloc[start_loc:start_loc+5])
+      start_loc +=5
+      view_data = input("Do you wish to continue?: ").lower()
     
     
 if __name__ == '__main__':
